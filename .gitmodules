@@ -1,6 +1,8 @@
 [submodule "backend"]
 	path = backend
 	url = https://github.com/woonat01/SmartThingsWebAPP-backend
+	branch = master
 [submodule "frontend"]
 	path = frontend
-	url = https://github.com/woonat01/CYBR8470-building-a-webservice-lab-frontend
+	url = https://github.com/MLHale/wistem-app-frontend
+	branch = master

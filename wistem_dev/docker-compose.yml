@@ -1,0 +1,33 @@
+# @Author: Matthew Hale <matthale>
+# @Date:   2018-02-28T00:25:23-06:00
+# @Email:  mlhale@unomaha.edu
+# @Filename: docker-compose.yml
+# @Last modified by:   matthale
+# @Last modified time: 2018-02-28T00:44:27-06:00
+# @Copyright: Copyright (C) 2018 Matthew L. Hale
+
+
+
+version: "3"
+services:
+  db:
+    restart: always
+    image: postgres
+    volumes:
+      - postgres-config:/etc/postgresql
+      - postgres-data:/var/lib/postgresql/data
+      - postgres-logs:/var/log/postgresql
+      - ../database-backup:/database-backup
+  django:
+    build: ../.
+    command: bash -c "python manage.py makemigrations && python manage.py migrate && python manage.py migrate && python /var/www/backend/manage.py runserver 0.0.0.0:8000"
+    volumes:
+      - ../backend:/var/www/backend
+    ports:
+     - "80:8000"
+    depends_on:
+     - db
+volumes:
+  postgres-config:
+  postgres-data:
+  postgres-logs:
