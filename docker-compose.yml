@@ -1,5 +1,25 @@
-version: "3"
+version: "2"
 services:
+  nginx:
+    image: nginx:latest
+    restart: always
+    ports:
+      - "80:8000"
+    volumes:
+      - ./backend:/var/www/backend
+      - ./config/nginx:/etc/nginx/conf.d
+    depends_on:
+      - django
+  django:
+    build: .
+    restart: always
+    command: bash -c "python manage.py makemigrations && python manage.py migrate && python manage.py migrate && gunicorn django_backend.wsgi -w 4 -b  0.0.0.0:8000"
+    volumes:
+      - ./backend:/var/www/backend
+    expose:
+     - "8000"
+    depends_on:
+     - db
   db:
     restart: always
     image: postgres
@@ -8,16 +28,6 @@ services:
       - postgres-data:/var/lib/postgresql/data
       - postgres-logs:/var/log/postgresql
       - ./database-backup:/database-backup
-  django:
-    build: .
-    command: python /var/www/backend/manage.py runserver 0.0.0.0:8000
-    volumes:
-      - ./backend:/var/www/backend
-    ports:
-     - "80:8000"
-     - "443:8000"
-    depends_on:
-     - db
 volumes:
   postgres-config:
   postgres-data:
