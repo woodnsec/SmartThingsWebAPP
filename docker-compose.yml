@@ -14,6 +14,8 @@ services:
     build: .
     restart: always
     command: bash -c "python manage.py makemigrations && python manage.py migrate && python manage.py migrate && gunicorn django_backend.wsgi -w 4 -b  0.0.0.0:8000"
+    environment:
+      WEATHER_API_KEY: "${WEATHER_API_KEY}"
     volumes:
       - ./backend:/var/www/backend
     expose:
