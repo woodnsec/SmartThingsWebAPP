@@ -1,7 +1,7 @@
 ###################################
 #
-# WiSTEM Award App Docker Container
-# @author Matt Hale
+# SmartThingsWebAPP Docker Container
+# @author Nate Wood
 #
 ###################################
 
