@@ -12,6 +12,7 @@ ENV PYTHONUNBUFFERED 1
 # Setup linkages to code repositories and add to image
 # ENV APP_USER wistem
 ENV APP_ROOT /var/www/backend
+ENV WEATHER_API_KEY ${WEATHER_API_KEY}
 RUN mkdir /var/www;
 RUN mkdir /var/www/backend
 # RUN groupadd -r ${APP_USER} \
