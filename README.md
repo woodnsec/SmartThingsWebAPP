@@ -39,7 +39,7 @@ As a **malicious user**, I want to **exploit the SmartThingsWebAPP guest access*
 * The guest acces will only be available from local WiFi, or other whitelisted locations
 
 ## High Level Design
-![Component diagram](https://www.lucidchart.com/publicSegments/view/1910ba9f-058b-4758-a457-847c3c7684d3/image.jpeg)
+![Component diagram](https://www.lucidchart.com/publicSegments/view/69d74ba6-b80e-45f1-8713-892471aa1c4a/image.png)
 
 ## Component List
 ### Software Components
