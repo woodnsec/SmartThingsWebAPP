@@ -93,10 +93,8 @@ git clone --recursive https://github.com/woonat01/SmartThingsWebAPP.git
 cd SmartThingsWebAPP
 docker-compose build
 ```
-2. Once the image is configured, it can be run using the following command
-```bash
-docker-compose up
-```
+2. Once the image is configured, it can be run using the following command: `docker-compose up`
+
 3. Go to the [Automation](https://devworkspace.developer.samsung.com/smartthingsconsole/iotweb/site/index.html#/development/automation) section of the Developer Workspace and create an Automation.
 	- For the **SmartApp Type** select **WebHook endpoint** and enter the https URL of your webserver.
     - For the **Scope**, click on **Settings** and select the following scopes:
