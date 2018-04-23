@@ -76,3 +76,43 @@ Text describing high level diagram with red or other callouts identifying proble
 | SmartThings API | Unauthorized Access | This application exposes API endpoints for SmarthThings which could be used malicioulsy.  | The API endpoints will require an API token to prevent misuse.|
 | Guest Access | Access to unauthoized devices | The guest access site will provide unauthenticated access to a set of devices | Certain devices will only be available to authenticated users (with the Android App)  |
 | Web Server | Denial of Service | The web server could be affected by a Denial of Service attack | Access will be whitelisted for guests and authenticated for application users |
+
+# Installation
+## Hardware requirements
+* SmartThings Hub and Samsung account will be required to use this SmartApp.
+* Web server with valid web certificate (HTTPS will be used by SmartThings API).
+* Smart lighting or switches to command with this SmartApp.
+
+## Software requirements
+* SmartThings Classic or SmartThings Android or iOS Application
+*
+## Setup web Server
+1. Running this application requires [Docker](https://www.docker.com/).  Once Docker is running, build the image as follows.
+```bash
+git clone --recursive https://github.com/woonat01/SmartThingsWebAPP.git
+cd SmartThingsWebAPP
+docker-compose build
+```
+2. Once the image is configured, it can be run using the following command
+```bash
+docker-compose up
+```
+3. Go to the [Automation](https://devworkspace.developer.samsung.com/smartthingsconsole/iotweb/site/index.html#/development/automation) section of the Developer Workspace and create an Automation.
+	- For the **SmartApp Type** select **WebHook endpoint** and enter the https URL of your webserver (note this has to be an HTTPS address).
+	- For the **Scope**, click on **Settings** and select the following scopes:
+    - `l.deviceStatus`,
+    - `r:devices:*`,
+		- `x:devices:*`,
+		- `r:schedules`, and
+		- `w:schedules`
+	- Click **SAVE AND NEXT**.
+	- In the next screen you will be presented with the **Public Key**.
+
+4. Copy this public key and replace the contents of the file `backend/toeknST.txt` with it.
+5. Click **CONFIRM** to register your automation in self-publishing mode.
+6. Create an API key with [Open Weather Map](https://api.openweathermap.org) (free tier is fine), and store it in a file `backend/tokenWeather.txt`.
+7. Stop the Docker container: `CTRL-C`.
+8. Start the Docker container again: `docker-compose up`
+9. Install the SmartApp in the SmartThings mobile app (go to Marketplace->SmartApps->My Apps-Weather Aware Lighting.
+10. Enter all required inputs on the configuration screens.
+11. Once installed the SmartApp will monitor your desired presence sensor and turn on the lights designated during setup.
