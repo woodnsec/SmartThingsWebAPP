@@ -98,7 +98,7 @@ docker-compose build
 docker-compose up
 ```
 3. Go to the [Automation](https://devworkspace.developer.samsung.com/smartthingsconsole/iotweb/site/index.html#/development/automation) section of the Developer Workspace and create an Automation.
-	- For the **SmartApp Type** select **WebHook endpoint** and enter the https URL of your webserver (note this has to be an HTTPS address).
+	- For the **SmartApp Type** select **WebHook endpoint** and enter the https URL of your webserver.
     - For the **Scope**, click on **Settings** and select the following scopes:
   		- `r:devices:*`,
   		- `x:devices:*`,
