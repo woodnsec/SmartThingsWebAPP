@@ -88,7 +88,7 @@ Text describing high level diagram with red or other callouts identifying proble
 
 ## Setup web Server
 1. Running this application requires [Docker](https://www.docker.com/).  Once Docker is running, build the image as follows.
-```bash
+```bashff
 git clone --recursive https://github.com/woonat01/SmartThingsWebAPP.git
 cd SmartThingsWebAPP
 docker-compose build
