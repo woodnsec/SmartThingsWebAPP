@@ -35,6 +35,9 @@ RUN pip install bleach
 RUN pip install gunicorn==19.6.0
 RUN pip install django-templated-email
 RUN pip install djangorestframework-jsonapi
+# certbot stuff 
+RUN pip install asymmetric_jwt_auth
+RUN pip install certbot
 RUN pip install certbot-django
 
 # USER ${APP_USER}

@@ -93,6 +93,9 @@ git clone --recursive https://github.com/woonat01/SmartThingsWebAPP.git
 cd SmartThingsWebAPP
 docker-compose build
 ```
+* You need to make new text files in the backend folder for tokenST.txt, tokenWeather.txt, publicKey_SmartThings.txt and put your tokens in there.
+* Create an Admin user for the site `python manage.py createsuperuser`
+	* fill in the username and password
 2. Once the image is configured, it can be run using the following command: `docker-compose up`
 
 3. Go to the [Automation](https://devworkspace.developer.samsung.com/smartthingsconsole/iotweb/site/index.html#/development/automation) section of the Developer Workspace and create an Automation.
