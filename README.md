@@ -87,7 +87,7 @@ Text describing high level diagram with red or other callouts identifying proble
 * SmartThings Classic or SmartThings Android or iOS Application
 
 ## Setup the web Server
-1. Running this application requires [Docker](https://www.docker.com/).  Once Docker is running, build the image as follows.
+* Running this application requires [Docker](https://www.docker.com/).  Once Docker is running, build the image as follows.
 ```bashff
 git clone --recursive https://github.com/woonat01/SmartThingsWebAPP.git
 cd SmartThingsWebAPP
@@ -100,13 +100,13 @@ docker-compose build
 * Once the image is configured, it can be run using the following command: `docker-compose up`
 
 ## Setup for SmartThings
-1. Go to the [Automation](https://devworkspace.developer.samsung.com/smartthingsconsole/iotweb/site/index.html#/development/automation) section of the Developer Workspace and create an Automation.
+* Go to the [Automation](https://devworkspace.developer.samsung.com/smartthingsconsole/iotweb/site/index.html#/development/automation) section of the Developer Workspace and create an Automation.
 	- For the **SmartApp Type** select **WebHook endpoint** and enter the https URL of your webserver.
     - For the **Scope**, click on **Settings** and select the following scopes:
-  		- `r:devices:*`,
-  		- `x:devices:*`,
-  		- `r:schedules`, and
-  		- `w:schedules`
+  		- `r:installedapps:*`
+  		- `l:devices:*`
+  		- `r:devices:*`
+  		- `x:devices:*`
 	- Click **SAVE AND NEXT**.
 	- In the next screen you will be presented with the **Public Key**.
 
@@ -117,6 +117,6 @@ docker-compose build
 * Start the Docker container again: `docker-compose up`
 
 ## Getting Started with SmartThings App
-1. Install the SmartApp in the SmartThings mobile app (go to Marketplace->SmartApps->Smart Weather Lighting.
+* Install the SmartApp in the SmartThings mobile app (go to Marketplace->SmartApps->Smart Weather Lighting.
 * Enter all required inputs on the configuration screens.
 * Once installed the SmartApp will monitor your desired presence sensor and turn on the lights designated during setup.
