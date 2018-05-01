@@ -118,3 +118,8 @@ docker-compose build
 * Install the SmartApp in the SmartThings mobile app (go to Marketplace->SmartApps->My Apps-Weather Aware Lighting.
 * Enter all required inputs on the configuration screens.
 * Once installed the SmartApp will monitor your desired presence sensor and turn on the lights designated during setup.
+
+## Getting Started with SmartThings App
+1. Install the SmartApp in the SmartThings mobile app (go to Marketplace->SmartApps->Smart Weather Lighting.
+* Enter all required inputs on the configuration screens.
+* Once installed the SmartApp will monitor your desired presence sensor and turn on the lights designated during setup.
